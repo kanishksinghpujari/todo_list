@@ -42,6 +42,16 @@ app.post("/",function(req,res){
 
 });
 
+app.post("/delete",function(req,res){
+  const item=req.body.item;
+  Item.findByIdAndRemove(item, function(error){
+    if(error)
+    console.log(error in deleting);
+    else
+    res.redirect("/");
+  });
+});
+
 app.listen(3000,function(){
   console.log("server started on port 3000");
 });

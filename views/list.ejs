@@ -3,14 +3,19 @@
 
   <body>
  <h1>  <%=day %></h1>
- <ul>
+
 
 
  <% for(var a=0;a<items.length;a++) { %>
 
-   <li><%= items[a].name %></li>
+<form class="" action="/delete" method="post">
+  <input type="checkbox" name="item" value="<%= items[a]._id%>" onChange="this.form.submit()">
+  <%= items[a].name %>
+  <br />
+</form>
+
  <%}%>
- </ul>
+
 
  <form class="" action="/" method="post">
    <input type="text" name="next" >
